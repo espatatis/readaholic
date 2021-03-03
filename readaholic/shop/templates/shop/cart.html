@@ -1,0 +1,15 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+    <article class="media content-section">
+        <br>
+        {% if user.is_authenticated %}
+        <h1>{% for books in count.all %} <li><img src={{books.book.image.url}} alt="" width="140" height="140"><br><a href="{% url 'detail' books.book_id %}">{{books.book}}</a> <br> <input type="number" value={{ books.count }} > </li> {% endfor %}</h1>   
+        <br><br><br>
+        <h1>Total = Rs {{ cart.total }} </h1>     
+        <br>
+        {% else %}
+        <h1>Log In to continue !</h1>
+        {% endif %}
+    </article>
+{% endblock %}
