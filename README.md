@@ -19,3 +19,8 @@ Ongoing tasks -
 - [ ] Search funcionality for books
 - [ ] Blog app
 - [ ] Authentication using email
+
+<br>
+
+
+<img width="" alt="portfolio_view" src="https://github.com/w3c/html/blob/master/images/HTML5_Logo.png">       <img width="93" alt="portfolio_view" src="https://github.com/espatatis/Readaholic/blob/master/readaholic/media/css3.png">   <img width="230" alt="portfolio_view" src="https://static.djangoproject.com/img/logos/django-logo-positive.png">   <img width="230" alt="portfolio_view" src="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png">  <img width="120" alt="portfolio_view" src="https://wiki.postgresql.org/images/3/30/PostgreSQL_logo.3colors.120x120.png">
