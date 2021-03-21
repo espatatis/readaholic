@@ -6,10 +6,11 @@ from shop.models import Cart
 from django.contrib.auth.models import User
 
 def register(request):
+
     if request.method == 'POST':
         form = UserRegistrationFom(request.POST)
         if form.is_valid():
-            instance = form.save()
+            form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}')
             Cart.objects.create(user = User.objects.get(username = username))

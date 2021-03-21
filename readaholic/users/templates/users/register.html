@@ -1,15 +1,22 @@
 {% extends "shop/base.html" %}
 {% block content %}
     <div>
-        <form method="POST">
+        {% if user.is_authenticated %}
+        You are already logged in ! 
+        {% else %}
+        <div class=mt--3></div>
+        <div id="alert-box"></div>
+        <form id="u-form" method="POST">
             {% csrf_token %}
             <fieldset>
                 <legend>Join Today</legend>
                 {{ form.as_p }}
             </fieldset>
+            <br>
             <div>
-                <button type="submit">Sign Up</button>
+                <button class="signup-button" type="submit">Sign Up</button> 
             </div>
         </form>
+        {% endif %}
     </div>
 {% endblock %}

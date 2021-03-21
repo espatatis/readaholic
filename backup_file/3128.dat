@@ -1,0 +1,51 @@
+1	Can add author	1	add_author
+2	Can change author	1	change_author
+3	Can delete author	1	delete_author
+4	Can view author	1	view_author
+5	Can add publisher	2	add_publisher
+6	Can change publisher	2	change_publisher
+7	Can delete publisher	2	delete_publisher
+8	Can view publisher	2	view_publisher
+9	Can add book	3	add_book
+10	Can change book	3	change_book
+11	Can delete book	3	delete_book
+12	Can view book	3	view_book
+13	Can add log entry	4	add_logentry
+14	Can change log entry	4	change_logentry
+15	Can delete log entry	4	delete_logentry
+16	Can view log entry	4	view_logentry
+17	Can add permission	5	add_permission
+18	Can change permission	5	change_permission
+19	Can delete permission	5	delete_permission
+20	Can view permission	5	view_permission
+21	Can add group	6	add_group
+22	Can change group	6	change_group
+23	Can delete group	6	delete_group
+24	Can view group	6	view_group
+25	Can add user	7	add_user
+26	Can change user	7	change_user
+27	Can delete user	7	delete_user
+28	Can view user	7	view_user
+29	Can add content type	8	add_contenttype
+30	Can change content type	8	change_contenttype
+31	Can delete content type	8	delete_contenttype
+32	Can view content type	8	view_contenttype
+33	Can add session	9	add_session
+34	Can change session	9	change_session
+35	Can delete session	9	delete_session
+36	Can view session	9	view_session
+37	Can add entry	10	add_entry
+38	Can change entry	10	change_entry
+39	Can delete entry	10	delete_entry
+40	Can view entry	10	view_entry
+41	Can add cart	11	add_cart
+42	Can change cart	11	change_cart
+43	Can delete cart	11	delete_cart
+44	Can view cart	11	view_cart
+45	Can add count	12	add_count
+46	Can change count	12	change_count
+47	Can delete count	12	delete_count
+48	Can view count	12	view_count
+\.
+
+

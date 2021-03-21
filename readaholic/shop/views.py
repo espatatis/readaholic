@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.db.models import F
 from django.urls import reverse
 from django import forms
+from users.models import Profile, Address
 
 class CartForm(forms.Form):
     count = forms.IntegerField()
@@ -48,3 +49,19 @@ def cart(request):
         return render(request,'shop/cart.html',context)
     else:
         return render(request,'shop/cart.html')
+
+def checkout(request):
+    user = User.objects.get(username = request.user.username)
+    p = Profile.objects.get(user = user.id)
+    A = Address.objects.get(profile = p)
+    add_1 = A.address_1 
+    add_2 = A.address_2
+    pin = A.PIN
+    state = A.state
+    context = {
+        'add_1': add_1,
+        'add_2': add_2,
+        'pin': pin,
+        'state': state
+    }
+    return render(request, 'shop/checkout.html', context)
