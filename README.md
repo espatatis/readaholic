@@ -14,3 +14,8 @@ Looking for -
 * Someone to help us with the design
 * ReactJS for its front end 
 *  Build and integrate a chat app
+
+Tasks -
+- [ ] Search funcionality for books
+- [ ] Blog app
+- [ ] Authentication using email
