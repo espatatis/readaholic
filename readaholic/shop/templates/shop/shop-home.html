@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for book in books %}
-    <article class="container">
+    <div class="containersomething">
         <br>
         <div>
             <img class="img-circle" src={{ book.image.url }} alt="Generic placeholder image" width="140" height="140">
@@ -17,6 +17,6 @@
         <p class="article-content">{{ book.desc }}</p>
         </div>
         <br>
-    </article>
+    </div>
     {% endfor %}
 {% endblock %}
