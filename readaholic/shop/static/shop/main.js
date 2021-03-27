@@ -1,37 +1,47 @@
-/*const alertBox = document.getElementById('alert-box')
-const form = document.getElementById('c-form')
+// function openForm() {
+//     document.getElementById("myForm").style.display = "block";
 
-const username = document.getElementById("id_username")
-const email = document.getElementById("id_email")
-const password1 = document.getElementById("id_passwrod1")
-const password2 = document.getElementById("id_password2")
+// }
+  
+//   function closeForm() {
+//     document.getElementById("myForm").style.display = "none";
 
-const csrf = document.getElementsByName('csrfmiddlewaretoken')
-console.log(csrf)
+// }var modal = document.getElementById("myModal");
+var modal = document.getElementById("myModal");
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+// console.log(btn);
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-form.addEventListener('submit', e=>{
-    e.preventDefault()
-    const fd = new FormData()
-    fd.append('csrfmiddlewaretoken',csrf[0].value)
-    fd.append('username',username.value)
-    fd.append('email',email.value)
-    fd.append('password1',password1.value)
-    fd.append('password2',password2.value)
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
-    $.ajax({
-        type: 'POST',
-        url: url,
-        enctype: 'multipart/form-data',
-        data: fd,
-        success: function(response){
-            console.log(response)
-        },
-        cache: false,
-        contentType: false,
-        processData: false,
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
-    })
-})
-
-
-/*
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+function myFunction(){
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}

@@ -4,16 +4,22 @@
     <article class="media content-section">
         <br>
         {% if user.is_authenticated %}
-        <form id="c-form" autocomplete="off">
-            {% csrf_token %}
+        <!-- <form id="c-form" autocomplete="off"> -->
+            
             <h1>
                 {% for books in count.all %} 
                 <li><img src={{books.book.image.url}} alt="" width="140" height="140"><br>
-                    <a href="{% url 'detail' books.book_id %}">{{books.book}}</a> <br> <input type="number" value={{ books.count }} > 
+                    <a href="{% url 'detail' books.book_id %}">{{books.book}}</a> <br> 
+                    {{ books.count }} - {{ books.price }} <br>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" style="cursor: pointer;" name="{{ books.id }}">Delete</button><br>
+                    </form>
+                    <!-- <input type="number" value={{ books.count }} >  -->
                 </li> 
                 {% endfor %}
             </h1>   
-        </form>
+        <!-- </form> -->
         
         <br><br><br>
         <h1>Total = Rs {{ cart.total }} </h1>     
