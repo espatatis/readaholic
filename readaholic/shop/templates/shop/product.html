@@ -15,12 +15,53 @@
         </div>
         <p class="article-content">{{ book.desc }}</p>
         </div>
-        <form action="" method="post">
+        <form id="c-form" action="" >
             {% csrf_token %}
-            <input type="number" name="count" id="" value=1 min=1>
+            {{ form3.as_p }}
             <button type="submit">Add to cart</button>
         </form>
         
         <br>
     </article>
+    <script>
+        const form = document.getElementById('c-form')
+
+const count = document.getElementById('id_count')
+
+
+const csrf = document.getElementsByName('csrfmiddlewaretoken')
+console.log(csrf)
+
+const url = ""
+
+form.addEventListener('submit', e=>{
+  e.preventDefault()
+
+  const fd = new FormData()
+  fd.append('csrfmiddlewaretoken', csrf[0].value)
+  fd.append('count', count.value)
+
+  console.log('take')
+  $.ajax({
+      type: 'POST',
+      method: 'POST',
+      url: url,
+      enctype: 'multipart/form-data',
+      data: fd,
+      success: function(response){
+          console.log(response)
+          const sText = `successfully saved ${response.name}`
+        //   handleAlerts('success', sText)
+          count.value = 1;
+      },
+      error: function(error){
+          console.log(error)
+          handleAlerts('danger', 'ups..something went wrong')
+      },
+      cache: false,
+      contentType: false,
+      processData: false,
+  })
+})
+    </script>
 {% endblock %}

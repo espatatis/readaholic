@@ -8,7 +8,7 @@
             
             <h1>
                 {% for books in count.all %} 
-                <li><img src={{books.book.image.url}} alt="" width="140" height="140"><br>
+                <li style="list-style: none;"><img src={{books.book.image.url}} alt="" width="140" height="140"><br>
                     <a href="{% url 'detail' books.book_id %}">{{books.book}}</a> <br> 
                     {{ books.count }} - {{ books.price }} <br>
                     <form action="" method="POST">

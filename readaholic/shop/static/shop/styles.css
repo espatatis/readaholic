@@ -279,7 +279,7 @@ a.login-signup {
   float: right;
   margin-right: 4%;
   right: 0;
-  display: none;
+  /* display: none; */
   position: absolute;
   background-color: #f1f1f1;
   min-width: 150px;

@@ -22,7 +22,7 @@
 
 
 <div style="height: 200px; text-align: center;">
-  <div class="top">
+  <div class="top" id="top">
     <img src="{% static 'shop/readaholic-logo-long.png' %}" style="width: 350px; vertical-align: bottom; float: left; filter: drop-shadow(0 0 7px rgb(150, 147, 147));" alt="">
     <div class="search-container" style="vertical-align: bottom;">      
         <input type="text" placeholder="Search...">
@@ -30,7 +30,7 @@
     </div>
     {% if user.is_authenticated %}
     <button class="login-signup" style="cursor: pointer;" id="btn-2" onClick="myFunction()"> {{user.fname}} </button>
-    <div id="myDropdown" class="dropdown-content">
+    <div id="myDropdown" class="dropdown-content" style=" display: none;">
       <form action="/" method="POST"> 
         {% csrf_token %} 
         <button type="submit" name="logout" style="border: 0px; background-color: inherit; cursor: pointer; filter: drop-shadow(0 0 10px #333); width: 100%; height: 100%;">Log out</button>
@@ -59,7 +59,7 @@
   <div class="modal" id="myModal">
   <div class="form-popup" >
     <div class="signup" style="border-right: 1px solid black;">
-    <form action="/" method="POST">
+    <form action="/" method="POST" autocomplete="off">
       {% csrf_token %}
       <fieldset style="border-radius: 5px;">
         <legend>Join Today</legend>
@@ -86,7 +86,7 @@
     
     </div>
     <div class="signup" style="border-left: 1px solid black;">
-      <form method="POST">
+      <form id="friend-form" method="POST" action="">
         {% csrf_token %}
         <fieldset style="border-radius: 5px;">
           <legend>Sign In</legend>
@@ -98,7 +98,7 @@
           <label for="{{ form2.password.id_for_label }}">Password:</label> 
           {{ form2.password }}<br><br>
           {{ form2.password.errors }}
-          <button style="float: right; cursor: pointer;">LogIn</button><br><br> 
+          <button type="submit" style="float: right; cursor: pointer;">LogIn</button><br><br> 
       
         </fieldset>
       </form>
@@ -111,10 +111,11 @@
     
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
       <script type="text/javascript" src="{% static 'shop/main.js' %}"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   
   </footer>
 </div>

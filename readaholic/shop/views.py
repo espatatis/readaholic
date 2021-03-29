@@ -15,7 +15,7 @@ from django.core import serializers
 
 
 class CartForm(forms.Form):
-    count = forms.IntegerField()
+    count = forms.IntegerField(initial=1)
 
 
 def home(request):
@@ -34,12 +34,20 @@ def detail(request, book_id):
     book = Book.objects.get(pk=book_id)
     context = {
         'book': book,
-        'form': UserRegistrationFom()
+        'form': UserRegistrationFom(),
+        'form3': CartForm(),
     }
-    if request.POST:
-        form = CartForm(request.POST)
+    if request.is_ajax():
+        form = CartForm(request.POST or None)
+        data = {}
+        print(form)
+        if form.is_valid():
+            print('#')
         if request.user.is_authenticated and form.is_valid():
+            print("data count", form.cleaned_data['count'])
             count = form.cleaned_data['count']
+            data['count'] = form.cleaned_data['count']
+            data['status'] = 'ok'
             my_cart = Cart.objects.get(
                 user=User.objects.get(email=request.user.email))
             counter, created = Count.objects.get_or_create(
@@ -49,6 +57,7 @@ def detail(request, book_id):
             counter.price = F('price') + count*book.price
             counter.save()
             my_cart.save()
+            return JsonResponse(data)
         else:
             return HttpResponse("You're not logged in dude ! So, you don't have a Cart")
 

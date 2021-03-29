@@ -22,16 +22,16 @@ def check(request):
                 email=saveuser.email))
             login(request, saveuser)
 
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('')
         if 'password' in request.POST:
             email = request.POST['email']
             password = request.POST['password']
             user = authenticate(request, email=email, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect('/')
+                return HttpResponseRedirect('')
             else:
                 return HttpResponse('something is wrong')
         if 'logout' in request.POST:
             logout(request)
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('')
