@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Readaholic</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'shop/styles.css' %}">
+</head>
+<body>
+	<div class="page_container">
+<div style="height: 200px; text-align: center;">
+  <div class="top" id="top">
+    <img src="{% static 'shop/readaholic-logo-long.png' %}" style="width: 350px; vertical-align: bottom; float: left; filter: drop-shadow(0 0 7px rgb(150, 147, 147));" alt="">
+    <div class="search-container" style="vertical-align: bottom;">      
+        <input type="text" placeholder="Search...">
+        <button style="cursor: pointer;">search</button>
+    </div>
+    {% if user.is_authenticated %}
+    <button class="login-signup" style="cursor: pointer;" id="btn-2" onClick="myFunction()"> {{user.fname}} </button>
+    <div id="myDropdown" class="dropdown-content" style=" display: none;">
+      <form action="/" method="POST"> 
+        {% csrf_token %} 
+        <button type="submit" name="logout" style="border: 0px; background-color: inherit; cursor: pointer; filter: drop-shadow(0 0 10px #333); width: 100%; height: 100%;">Log out</button>
+      </form>
+      <a href="{% url 'cart' %}"><button name="cart" style="border: 0px; background-color: inherit; cursor: pointer; filter: drop-shadow(0 0 10px #333); width: 100%; height: 100%;">Cart</button></a>
+
+    </div>
+    {% else %}
+    <button class="login-signup" style="cursor: pointer;" id="myBtn"> Sign up/Login </button>
+    {% endif %}
+  </div>
+  <div class="u_navbar">
+    <li> <a href="{% url 'shop-home' %}">Shop</a> </li>    
+    <li> <a href="#">Blog</a> </li>    
+    <li> <a href="#">e-books</a> </li>    
+    <li> <a href="#">Sell</a> </li>
+    <li> <a href="#">About us</a> </li>
+    <li> <a href="#">Contact us</a> </li>
+  </div>
+
+</div>
+
+{% block content %}{% endblock %}
+
+  
+  <div class="modal" id="myModal">
+  <div class="form-popup" >
+    <div class="signup" style="border-right: 1px solid black;">
+    <form action="/" method="POST" autocomplete="off">
+      {% csrf_token %}
+      <fieldset style="border-radius: 5px;">
+        <legend>Join Today</legend>
+        {{ form.non_field_errors }}
+        <label for="{{ form.firstname.id_for_label }}">First Name:</label> 
+        {{ form.firstname }}<br><br>
+        <!-- {{ form.username.errors }} -->
+        <label for="{{ form.lastname.id_for_label }}">Last Name:</label> 
+        {{ form.lastname }}<br><br>
+        <!-- {{ form.username.errors }} -->
+
+        <label for="{{ form.email.id_for_label }}">Email:</label> 
+        {{ form.email }}<br><br>
+        {{ form.email.errors }}
+        <label for="{{ form.password1.id_for_label }}">Password:</label> 
+        {{ form.password1 }}<br><br>
+        {{ form.password.errors }}
+        <label for="{{ form.password2.id_for_label }}">Confirm Password:</label> 
+        {{ form.password2 }}<br><br>
+        {{ form.password.errors }}
+        <button style="float: right; cursor: pointer;">Sign Up</button><br><br> 
+      </fieldset>
+    </form>
+    
+    </div>
+    <div class="signup" style="border-left: 1px solid black;">
+      <form id="friend-form" method="POST" action="">
+        {% csrf_token %}
+        <fieldset style="border-radius: 5px;">
+          <legend>Sign In</legend>
+          {{ form2.non_field_errors }}
+          <label for="{{ form2.email.id_for_label }}">Email:</label> 
+          {{ form2.email }}<br><br>
+          {{ form2.email.errors }}
+
+          <label for="{{ form2.password.id_for_label }}">Password:</label> 
+          {{ form2.password }}<br><br>
+          {{ form2.password.errors }}
+          <button type="submit" style="float: right; cursor: pointer;">LogIn</button><br><br> 
+      
+        </fieldset>
+      </form>
+    </div>
+    <span class="close">Close</span>
+  </div>
+  </div>
+  
+  <footer class="footer">
+    
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+      <script type="text/javascript" src="{% static 'shop/main.js' %}"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  </footer>
+</div>
+</body>
+
+</html>
